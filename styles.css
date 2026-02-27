@@ -1,12 +1,59 @@
-/* CSS by ///ADD/// YOUR NAME */
+/* CSS by Melissa */
 
-/* Imported Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+/* 1. IMPORTED FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,300..900;1,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
-/* ///ADD/// CSS Reset */
+/* 2. CORE RESET */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
-/* Root Variables */
+/* 3. BRAND VARIABLES */
 :root {
   --blue-bulletin: #1D3557;
   --news-flash: #E63946;
@@ -38,28 +85,430 @@ body.dark-mode {
   cursor: pointer;
 }
 
-/* ///ADD/// Skip Link Styles */
+.skip-link {
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  font-weight: 700;
+  left: 50%;
+  padding: 4px;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
 
-/* ///ADD/// Navigation Styles */
+.skip-link:focus {
+  transform: translateY(0%);
+}
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  background-color: var(--watchdog-white);
+  color: var(--truth-text);
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
-/* ///ADD/// Global Layout Styles */
+h1 {
+  font-family: var(--font-heading);
+  font-size: 3em;
+  font-weight: 300;
+}
 
-/* ///ADD/// Global Text Styles */
+.menu-button, #menu-toggle {
+  display: none !important;
+}
+
+header {
+  background-color: var(--blue-bulletin);
+  color: white;
+  padding: 2rem 5% 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .25rem;
+}
+
+.tagline {
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: var(--font-heading);
+  letter-spacing: -.5px;
+  margin-bottom: 1em;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 15px;
+  list-style: none;
+  width: 100%;
+}
+
+.menu li a {
+  display: block;
+  padding: 5px;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.menu li a:hover {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  border-color: var(--news-flash);
+}
+
+main {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 5%;
+  gap: 2rem;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+#main-content blockquote.tagline {
+  text-align: center;
+  margin: 1.5rem auto 0.5rem; 
+  display: block;  
+  width: 100%;
+  font-weight: 900;
+  font-size: 1em;
+}
+
+.breaking-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 2rem;
+}
+
+.breaking-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 15px var(--truth-text);
+}
+
+.breaking-item {
+  font-family: var(--font-body);
+  background-color: var(--news-flash);
+  color: white;
+  padding: 1.5rem; 
+  display: grid;
+  gap: .5rem;
+  box-shadow: 0 10px 15px var(--truth-text);
+  border: 1px solid var(--truth-text);
+  transition: var(--transition);
+}
+
+.breaking-item h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  line-height: 1.1;
+  border-bottom: 1px solid white;
+  padding-bottom: 0.5rem;
+}
+
+.breaking-item video {
+  width: 100%;
+  border: 4px solid rgba(255,255,255,0.2);
+  aspect-ratio: 16 / 9;
+}
 
 
-/* ///ADD/// medium styles 620px */
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2.5rem;
+}
+
+.article-card {
+
+  padding: 1rem;
+  border: 1px solid var(--story-subtitle);
+  transition: var(--transition);
+  box-shadow: 0 10px 15px var(--truth-text);
+}
+
+.article-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.article-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--story-subtitle);
+  line-height: 1.2;
+  margin-bottom: .25rem;
+}
+
+#subscription h2 {
+  margin-bottom: -1rem;
+}
+
+#subscription p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+#alerts {
+  background-color: var(--news-flash);
+  color: white;
+  padding: 2rem 10%;
+  display: grid;
+  gap: 3rem;
+  border: 1px solid var(--blue-bulletin);
+  padding: 1.5rem 3.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+}
+
+input[type="text"], input[type="tel"] {
+  width: 100%;
+  padding: 20px;
+  border: none;
+  font-size: 1.2rem;
+}
+
+#alerts legend {
+  color: white;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 0 10px;
+}
+
+#alerts fieldset {
+  grid-column: 1 / -1; 
+  width: 100%;        
+  box-sizing: border-box; 
+  margin: 1.5rem 0;
+  border: 1px solid var(--truth-text);
+  padding: .25rem;
+}
 
 
-/* ///ADD/// large styles 920px */
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1.5rem 1rem; 
+  margin-top: 1rem;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-wrapper label {
+  color: white;
+  font-weight: normal;
+  font-size: 0.95rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+.subscribe-btn {
+  grid-column: 1 / -1;
+  background: var(--blue-bulletin);
+  color: white;
+  padding: 1rem;
+  border: none;
+  font-weight: 300;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.subscribe-btn:hover {
+  background: var(--watchdog-white);
+  color: var(--blue-bulletin);
+  border: 1px solid var(--truth-text);
+}
+
+footer {
+  background-color: var(--blue-bulletin);
+  color: white;
+  padding: 2rem 5% 2rem;
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-links li a {
+  display: inline-block;
+  background-color: var(--news-flash);
+  color: white;
+  text-decoration: none;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 12px 18px;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+}
+
+.social-links li a:hover {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  border-color: var(--news-flash);
+}
+
+footer p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;}
+
+@media (max-width: 620px) {
+  #featured-articles { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .checkbox-group {
+    grid-template-columns: 1fr; 
+  }
+  .mobile-nav {
+    position: relative; 
+    width: 100%;
+  }
+  
+.menu-button {
+    display: block !important; 
+    width: 100%;
+    padding: 15px;
+    background-color: var(--news-flash); 
+    color: white;
+    border: 1px solid var(--blue-bulletin); 
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+.menu {
+    display: none; 
+    flex-direction: column; 
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    gap: 0; 
+    position: absolute; 
+    top: 100%; 
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
+  }
+
+  .menu li {
+    width: 100%;
+    display: block;
+    margin: 0;
+    background-color: var(--blue-bulletin);
+  }
+
+  .menu li a {
+    display: block;
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 15px;
+    text-align: center;
+    background-color: var(--news-flash); 
+    color: white;
+    font-family: var(--font-body);
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--blue-bulletin); 
+    margin-top: 1px;
+    transition: background-color 0.2s ease;
+  }
+
+  .menu li a:hover {
+    background-color: var(--blue-bulletin); 
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr; 
+    column-gap: 1rem; 
+  }
+  
+}
 
 
-/* ///ADD/// x-large styles 1024px */
+@media (min-width: 920px) {
+  
+  .breaking-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+  .menu-button { 
+    display: none; 
+  }
+  .menu { 
+    display: flex; 
+    justify-content: flex-start; 
+  }
+  #featured-articles { 
+    grid-template-columns: repeat(3, 1fr); 
+  }
+  
+  .checkbox-group {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  
+}
+
+@media (min-width: 1024px) {
+  
+   main {
+    max-width: 1600px;
+   }  
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
 
 
-/* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
-
-
-/* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
-
+  .mobile-nav:has(#menu-toggle:checked) 
+  .menu { display: flex; 
+    flex-direction: column; 
+  }
 }
